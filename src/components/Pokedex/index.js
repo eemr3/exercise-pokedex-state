@@ -19,7 +19,9 @@ class Pokedex extends Component {
     if (this.state.pokemonIndex === pokemons.length - 1) {
       this.setState({ pokemonIndex: 0 });
     }
-    this.setState((prevState) => ({ pokemonIndex: prevState.pokemonIndex + 1 }));
+    this.setState((prevState) => ({
+      pokemonIndex: prevState.pokemonIndex + 1,
+    }));
   }
 
   render() {
