@@ -11,7 +11,7 @@ class Pokedex extends Component {
     super();
     this.state = {
       pokemonIndex: 0,
-      typePokemons: 'Fire',
+      typePokemons: 'All',
     };
     this.handleNextPokemon = this.handleNextPokemon.bind(this);
     this.getPokemon = this.getPokemon.bind(this);
@@ -19,6 +19,9 @@ class Pokedex extends Component {
   }
 
   getPokemon() {
+    if (this.state.typePokemons === 'All') {
+      return pokemons;
+    }
     return pokemons.filter((pokemon) => pokemon.type === this.state.typePokemons);
   }
 
@@ -49,6 +52,7 @@ class Pokedex extends Component {
         <main className="container">
           <Pokemon pokemons={pokemon} key={pokemons.id} />
           <div className="container-button">
+            <Button onClick={() => this.handleFilterPokemon('All')}>All</Button>
             <Button onClick={() => this.handleFilterPokemon('Fire')}>Fire</Button>
             <Button onClick={() => this.handleFilterPokemon('Psychic')}>Psychic</Button>
           </div>
