@@ -5,9 +5,9 @@ import './pokemon.css';
 
 class Pokemon extends Component {
   render() {
-    const { name, type, averageWeight, image } = this.props.pokemon;
+    const { name, type, averageWeight, image } = this.props.pokemons;
     return (
-      <div className='card-pokemon'>
+      <div className="card-pokemon">
         <h2>{name}</h2>
         <h3>{type}</h3>
         <p>

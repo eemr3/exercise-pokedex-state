@@ -6,14 +6,18 @@ import Pokemon from '../Pokemon';
 import './pokedex.css';
 
 class Pokedex extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pokemonIndex: 0,
+    };
+  }
   render() {
     return (
       <>
         <Header />
-        <main className='container'>
-          {pokemons.map((pokemon) => (
-            <Pokemon pokemon={pokemon} key={pokemon.id} />
-          ))}
+        <main className="container">
+          <Pokemon pokemons={pokemons[this.state.pokemonIndex]} key={pokemons.id} />
         </main>
       </>
     );
