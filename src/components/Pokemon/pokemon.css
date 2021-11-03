@@ -1,26 +1,25 @@
 .card-pokemon {
+  align-items: center;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  border-top: 1px solid rgb(172, 32, 32);
+  border-left: 1px solid rgb(172, 32, 32);
+  border-bottom: 1px solid rgb(40, 11, 207);
+  border-right: 1px solid rgb(40, 11, 207);
   box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
   padding: 17px;
-  margin: 10px;
+  margin: 70px 10px;
   width: 400px;
   transition: all 0.3s ease-out;
 }
 
-.card-pokemon:nth-child(even) {
-  border-top: 1px solid rgb(40, 11, 207);
-  border-left: 1px solid rgb(40, 11, 207);
-}
-
-.card-pokemon:nth-child(odd) {
-  border-top: 1px solid rgb(172, 32, 32);
-  border-left: 1px solid rgb(172, 32, 32);
-}
-
 .card-pokemon:hover {
   transform: translateY(-5px);
+  border-bottom: 1.2px solid rgb(172, 32, 32);
+  border-right: 1.2px solid rgb(172, 32, 32);
+  border-top: 1.2px solid rgb(40, 11, 207);
+  border-left: 1.2px solid rgb(40, 11, 207);
   cursor: pointer;
 }
 
