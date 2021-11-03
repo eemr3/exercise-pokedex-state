@@ -16,6 +16,7 @@ class Pokedex extends Component {
     this.handleNextPokemon = this.handleNextPokemon.bind(this);
     this.getPokemon = this.getPokemon.bind(this);
     this.handleFilterPokemon = this.handleFilterPokemon.bind(this);
+    this.getTypesPokemons = this.getTypesPokemons.bind(this);
   }
 
   getPokemon() {
@@ -40,23 +41,40 @@ class Pokedex extends Component {
       typePokemons: typePokemon,
       pokemonIndex: 0,
     });
-    console.log(this.state.typePokemons);
+  }
+  getTypesPokemons() {
+    const types = pokemons.map((pokemon) => pokemon.type);
+    return types.filter((type, index) => types.indexOf(type) === index);
   }
 
   render() {
     const allPokemon = this.getPokemon();
     const pokemon = allPokemon[this.state.pokemonIndex];
+    const pokemonsType = this.getTypesPokemons();
     return (
       <>
         <Header />
         <main className="container">
           <Pokemon pokemons={pokemon} key={pokemons.id} />
           <div className="container-button">
-            <Button onClick={() => this.handleFilterPokemon('All')}>All</Button>
-            <Button onClick={() => this.handleFilterPokemon('Fire')}>Fire</Button>
-            <Button onClick={() => this.handleFilterPokemon('Psychic')}>Psychic</Button>
+            <Button
+              onClick={() => this.handleFilterPokemon('All')}
+              className="pokeButton">
+              All
+            </Button>
+            {pokemonsType.map((type) => (
+              <Button
+                key={type}
+                onClick={() => this.handleFilterPokemon(type)}
+                className="pokeButton">
+                {type}
+              </Button>
+            ))}
           </div>
-          <Button onClick={() => this.handleNextPokemon(allPokemon.length)}>
+          <Button
+            disable={allPokemon.length === 1 ? true : false}
+            onClick={() => this.handleNextPokemon(allPokemon.length)}
+            className="pokeButton">
             Próximo
           </Button>
         </main>

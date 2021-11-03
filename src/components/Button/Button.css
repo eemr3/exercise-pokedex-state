@@ -14,3 +14,8 @@
 .pokeButton:hover {
   background-color: rgba(36, 36, 36, 0.8);
 }
+
+.pokeButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}

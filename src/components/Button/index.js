@@ -4,9 +4,9 @@ import './Button.css';
 
 class Button extends Component {
   render() {
-    const { onClick, children } = this.props;
+    const { onClick, children, disable, className } = this.props;
     return (
-      <button onClick={onClick} className="pokeButton">
+      <button onClick={onClick} disabled={disable} className={className}>
         {children}
       </button>
     );
